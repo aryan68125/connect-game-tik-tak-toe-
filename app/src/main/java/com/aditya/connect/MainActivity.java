@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
         //this condition will only allow a counter to be tapped if the counter is empty and has no image inside
         //and the game needs to be active as well
-        if (gameState[TappedCounter] == 2 && gameactive) {
+        if (gameState[TappedCounter] == 2 && gameactive)
+        {
             gameState[TappedCounter] = activePlayer; //updating the value inside the array with the active player
             counter.setTranslationY(-2000);// setting the counter off the screen -2000dp
             if (activePlayer == 0) {
@@ -95,6 +96,19 @@ public class MainActivity extends AppCompatActivity {
                     button.setVisibility(View.VISIBLE); //this will make the button visible when the game ends and someone has won
                 }
             }
+        }
+        int c=0;
+        for(int k=0;k<gameState.length;k++)
+        {
+            if(gameState[k]!=2)
+            {
+               c++;
+            }
+        }
+        if(c==9)
+        {
+            Button button5 = (Button) findViewById(R.id.button);
+            button5.setVisibility(View.VISIBLE);
         }
     }
 
