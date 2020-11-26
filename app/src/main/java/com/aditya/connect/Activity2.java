@@ -2,6 +2,7 @@ package com.aditya.connect;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,13 +17,15 @@ public class Activity2 extends AppCompatActivity {
     ListView listView;
     TextView textView;
 
+    MediaPlayer mediaPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
         listView = findViewById(R.id.listView);
         textView = findViewById(R.id.textView3);
-        String item[] = {"Name", "Branch", "Year", "Course", "College Name", "College code", "AKTU Roll number"};
+        String item[] = {"Name", "Branch", "Course", "College Name", "College code", "AKTU Roll number"};
 
         ListAdapter listItem = new ArrayAdapter<String>(this, R.layout.listview, item);
         listView.setAdapter(listItem);
@@ -35,36 +38,42 @@ public class Activity2 extends AppCompatActivity {
                 {
                     messege = "Aditya Kumar";
                     textView.setText(messege);
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.name);
+                    mediaPlayer.start();
                 }
-               else if(position==1)
-                {
+               else if(position==1) {
                     messege = "Computer Science";
                     textView.setText(messege);
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.branch);
+                    mediaPlayer.start();
                 }
                 else if(position==2)
                 {
-                    messege = "Second Year";
+                    messege = "B.Tech";
                     textView.setText(messege);
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.course);
+                    mediaPlayer.start();
                 }
                 else if(position==3)
                 {
-                    messege = "B.Tech";
+                    messege = "Saroj Institute of Technology";
                     textView.setText(messege);
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.college_name);
+                    mediaPlayer.start();
                 }
                 else if(position==4)
                 {
-                    messege = "Saroj Institute of Technology";
+                    messege = "123";
                     textView.setText(messege);
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.college_code);
+                    mediaPlayer.start();
                 }
                 else if(position==5)
                 {
-                    messege = "123";
-                    textView.setText(messege);
-                }
-                else if(position==6)
-                {
                     messege = "1901230100001";
                     textView.setText(messege);
+                    mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.roll_number);
+                    mediaPlayer.start();
                 }
             }
         });
